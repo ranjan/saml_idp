@@ -45,7 +45,7 @@ module SamlIdp
     end
 
     def build
-      @built ||= response_builder.encoded
+      @built ||= response_builder
     end
 
     def signed_assertion

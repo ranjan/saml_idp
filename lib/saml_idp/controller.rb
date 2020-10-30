@@ -54,7 +54,7 @@ module SamlIdp
         my_authn_context_classref,
         expiry,
         encryption_opts
-      )
+      ).build
     end
 
     def encode_logout_response(principal, opts = {})

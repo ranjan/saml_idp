@@ -39,14 +39,14 @@ module SamlIdp
         Version: "2.0" do |assertion|
           assertion.Issuer issuer_uri
           sign assertion
-          assertion.Subject do |subject|
-            subject.NameID name_id, Format: name_id_format[:name]
-            subject.SubjectConfirmation Method: Saml::XML::Namespaces::Methods::BEARER do |confirmation|
-              confirmation.SubjectConfirmationData "", InResponseTo: saml_request_id,
-                NotOnOrAfter: not_on_or_after_subject,
-                Recipient: saml_acs_url
-            end
-          end
+          # assertion.Subject do |subject|
+          #   subject.NameID name_id, Format: name_id_format[:name]
+          #   subject.SubjectConfirmation Method: Saml::XML::Namespaces::Methods::BEARER do |confirmation|
+          #     confirmation.SubjectConfirmationData "", InResponseTo: saml_request_id,
+          #       NotOnOrAfter: not_on_or_after_subject,
+          #       Recipient: saml_acs_url
+          #   end
+          # end
           assertion.Conditions NotBefore: not_before, NotOnOrAfter: not_on_or_after_condition do |conditions|
             conditions.AudienceRestriction do |restriction|
               restriction.Audience audience_uri

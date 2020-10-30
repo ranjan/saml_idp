@@ -37,6 +37,7 @@ module SamlIdp
         Destination: saml_acs_url,
         Consent: Saml::XML::Namespaces::Consents::UNSPECIFIED,
         InResponseTo: saml_request_id,
+        entityID: issuer_uri,
         "xmlns:samlp" => Saml::XML::Namespaces::PROTOCOL do |response|
           response.Issuer issuer_uri, xmlns: Saml::XML::Namespaces::ASSERTION
           response.tag! "samlp:Status" do |status|

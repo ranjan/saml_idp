@@ -46,7 +46,7 @@ module SamlIdp
           #       NotOnOrAfter: not_on_or_after_subject,
           #       Recipient: saml_acs_url
           #   end
-          end
+          # end
           assertion.Conditions NotBefore: not_before, NotOnOrAfter: not_on_or_after_condition do |conditions|
             conditions.AudienceRestriction do |restriction|
               restriction.Audience audience_uri

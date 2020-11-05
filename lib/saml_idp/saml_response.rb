@@ -45,7 +45,7 @@ module SamlIdp
     end
 
     def build
-      @built ||= response_builder
+      @built ||= response_builder.encoded
     end
 
     def signed_assertion
@@ -58,7 +58,7 @@ module SamlIdp
     private :signed_assertion
 
     def response_builder
-      ResponseBuilder.new(response_id, issuer_uri, saml_acs_url, saml_request_id, signed_assertion).raw
+      ResponseBuilder.new(response_id, issuer_uri, saml_acs_url, saml_request_id, signed_assertion)
     end
     private :response_builder
 
